@@ -1,0 +1,24 @@
+@mixin main_chat_list(){
+  &__contents{
+    padding-left: 40px;
+    &__user{
+      display: flex;
+      padding-top: 35px;
+      &__name{
+        font-size: 16px;
+        color: #333333;
+      }
+      &__date{
+        font-size: 12px;
+        color: #999999;
+        padding-left: 5px;
+      }
+    }
+    &__message{
+      font-size: 14px;
+      color: #434A56;
+      padding-top: 12px;
+      padding-bottom: 46px;
+    }
+  }
+}
