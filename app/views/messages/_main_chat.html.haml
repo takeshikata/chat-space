@@ -1,0 +1,33 @@
+.main_chat
+  .main_chat__top
+    .main_chat__top__left
+      .main_chat__top__left__groupname
+        Team A
+      %ul.main_chat__top__left__members
+        Member：
+        %li.main_chat__top__left__members__member
+          tom
+        %li.main_chat__top__left__members__member
+          bob
+
+    .main_chat__top__right
+      = link_to "Edit", "#", class: "main_chat__top__right--btn"
+
+  .main_chat__middle
+    .main_chat__middle__contents
+      .main_chat__middle__contents__user
+        .main_chat__middle__contents__user__name
+          takeshi
+        .main_chat__middle__contents__user__date
+          2020-05-09
+      .main_chat__middle__contents__message
+        This is a first message
+  .main_chat__bottom
+    %form.main_chat__bottom__form
+      .main_chat__bottom__form__input
+        %input.main_chat__bottom__form__input__text{type: "text", placeholder: "メッセージを入力してください"}
+        %label.main_chat__bottom__form__input__label{for: "gazo"}
+          = icon('far', 'image', class: "icon")
+          %input{type: "file", id: "gazo", class: "file"}
+
+      = link_to "Send", "#", class: "main_chat__bottom__form--btn"

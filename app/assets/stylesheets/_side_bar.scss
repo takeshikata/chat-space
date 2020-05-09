@@ -1,0 +1,43 @@
+.side_bar{
+  width: 300px;
+  height: 100%;
+  font-weight: bold;
+  color: $white;
+  &__top{
+    display: flex;
+    height: 100px;
+    background: #253141;
+    align-items: center;
+    &__contents{
+      display: flex;
+      justify-content: space-between;
+      height: 20px;
+      width: calc(100% - 40px);
+      margin: 0 auto;
+      background: #253141;
+      &__left{
+        max-width: 200px;
+        line-height: 20px;
+      }
+      &__right{
+        text-align: right;
+        width: 60px;
+        line-height: 20px;
+        &--btn{
+          color: $white;
+          text-decoration: none;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  &__bottom{
+    height: calc(100% - 100px);
+    background: #2f3e51;
+    @include side_bar_list();
+    @include side_bar_list();
+    @include side_bar_list();
+    @include side_bar_list();
+  }
+
+}
