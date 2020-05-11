@@ -4,13 +4,14 @@
       .side_bar__top__contents__left
         = current_user.name
       .side_bar__top__contents__right
-        = link_to "#", class: "side_bar__top__contents__right--btn" do
+        = link_to new_group_path(current_user), class: "side_bar__top__contents__right--btn" do
           = icon('far', 'edit')
         = link_to edit_user_path(current_user), class: "side_bar__top__contents__right--btn" do
           = icon('fas', 'cog', class: 'icon')
   .side_bar__bottom
-    .side_bar__bottom__contents
-      .side_bar__bottom__contents__groupname
-        Team A
-      .side_bar__bottom__contents__comment
-        This is a first message
+    - current_user.groups.each do |group|
+      .side_bar__bottom__contents
+        = link_to '#', class: "side_bar__bottom__contents__groupname" do
+          = group.name
+        .side_bar__bottom__contents__comment
+          This is a first message

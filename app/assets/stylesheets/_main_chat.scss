@@ -47,9 +47,6 @@
     height: calc(100% - 190px);
     background: #fafafa;
     @include main_chat_list();
-    @include main_chat_list();
-    @include main_chat_list();
-    @include main_chat_list();
   }
   &__bottom{
     height: 90px;
