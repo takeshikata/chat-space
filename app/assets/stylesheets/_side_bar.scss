@@ -32,6 +32,7 @@
     }
   }
   &__bottom{
+    overflow: scroll;
     height: calc(100% - 100px);
     background: #2f3e51;
     @include side_bar_list();
