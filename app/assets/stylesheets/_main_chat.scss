@@ -44,6 +44,7 @@
   }
 
   &__middle{
+    overflow: scroll;
     height: calc(100% - 190px);
     background: #fafafa;
     @include main_chat_list();

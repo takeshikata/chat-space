@@ -9,9 +9,9 @@
         = link_to edit_user_path(current_user), class: "side_bar__top__contents__right--btn" do
           = icon('fas', 'cog', class: 'icon')
   .side_bar__bottom
-    - current_user.groups.each do |group|
-      .side_bar__bottom__contents
-        = link_to '#', class: "side_bar__bottom__contents__groupname" do
+    .side_bar__bottom__contents
+      - current_user.groups.includes(:messages).each do |group|
+        = link_to group_messages_path(group), class: "side_bar__bottom__contents__groupname" do
           = group.name
         .side_bar__bottom__contents__comment
-          This is a first message
+          = group.show_last_message
