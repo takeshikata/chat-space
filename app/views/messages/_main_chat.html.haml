@@ -27,21 +27,21 @@
             = message.content
         = image_tag message.image.url, size: '300x300', alt: 'テスト画像' if message.image.present?
 
-  /- if message.content.present? = message.content
-  /= image_tag message.image.url, size: '300x300', alt: 'テスト画像', class: 'lower-message__image' if message.image.present?
+  -# - if message.content.present? = message.content
+  -# = image_tag message.image.url, size: '300x300', alt: 'テスト画像', class: 'lower-message__image' if message.image.present?
 
-  /= render partial: 'messages/message', collection: @messages
-  / = render partial: 'message', collection: @messages でも可
-  /- @messages.each do |message| = render partial: "message", locals: { message: message }はメッセージと同じ回数ビューの作成処理が行われるため、処理スピードが遅くなるからダメ
+  -# = render partial: 'messages/message', collection: @messages
+  -# = render partial: 'message', collection: @messages でも可
+  -# - @messages.each do |message| = render partial: "message", locals: { message: message }はメッセージと同じ回数ビューの作成処理が行われるため、処理スピードが遅くなるからダメ
 
-  /%form.main_chat__bottom__form
-  /%input.main_chat__bottom__form__input__text{type: "text", placeholder: "メッセージを入力してください"}
-  /%label.main_chat__bottom__form__input__label{for: "gazo"}
-  /%input{type: "file", id: "gazo", class: "file"}
-  /= link_to "Send", "#", class: "main_chat__bottom__form--btn"
+  -# %form.main_chat__bottom__form
+  -# %input.main_chat__bottom__form__input__text{type: "text", placeholder: "メッセージを入力してください"}
+  -# %label.main_chat__bottom__form__input__label{for: "gazo"}
+  -# %input{type: "file", id: "gazo", class: "file"}
+  -# = link_to "Send", "#", class: "main_chat__bottom__form--btn"
 
-  /= form_with(model: [@group, @message], clsss: :main_chat__bottom__form)
-  /html: {class: 'main_chat__bottom__form'}
+  -# = form_with(model: [@group, @message], clsss: :main_chat__bottom__form)
+  -# html: {class: 'main_chat__bottom__form'}
   .main_chat__bottom
     = form_for [@group, @message], html: {class: 'main_chat__bottom__form'} do |f|
       .main_chat__bottom__form__input
