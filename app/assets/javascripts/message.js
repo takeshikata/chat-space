@@ -37,7 +37,7 @@ $(function(){
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
-    //e.stopPropagation();
+
     let formData = new FormData(this);
     let url = $(this).attr('action')
     $.ajax({
@@ -52,7 +52,6 @@ $(function(){
       let html = buildHTML(data);
       $('.main_chat__middle').append(html);
       $('.main_chat__middle').animate({ scrollTop: $('.main_chat__middle')[0].scrollHeight });
-      //$('.main_chat__middle').stop().animate({ scrollTop: $('.main_chat__middle')[0].scrollHeight }, 3000, 'swing'); //overflow: scrollが記述されている要素につけないと効かない
       $('#new_message')[0].reset();
       $('input[name = "commit"]').prop('disabled', false);
     })
