@@ -8,15 +8,13 @@
         - @group.users.each do |user|
           %li.main_chat__top__left__members__member
             = user.name
-          %li.main_chat__top__left__members__member
-            = user.name
 
     .main_chat__top__right
       = link_to "Edit", edit_group_path(@group), class: "main_chat__top__right--btn"
 
   .main_chat__middle
-    .main_chat__middle__contents
-      - current_user.messages.includes(:group).each do |message|
+    - @messages.each do |message|
+      .main_chat__middle__contents{data: {message: {id: message.id}}}
         .main_chat__middle__contents__user
           .main_chat__middle__contents__user__name
             = message.user.name
@@ -27,21 +25,6 @@
             = message.content
         = image_tag message.image.url, size: '300x300', alt: 'テスト画像' if message.image.present?
 
-  -# - if message.content.present? = message.content
-  -# = image_tag message.image.url, size: '300x300', alt: 'テスト画像', class: 'lower-message__image' if message.image.present?
-
-  -# = render partial: 'messages/message', collection: @messages
-  -# = render partial: 'message', collection: @messages でも可
-  -# - @messages.each do |message| = render partial: "message", locals: { message: message }はメッセージと同じ回数ビューの作成処理が行われるため、処理スピードが遅くなるからダメ
-
-  -# %form.main_chat__bottom__form
-  -# %input.main_chat__bottom__form__input__text{type: "text", placeholder: "メッセージを入力してください"}
-  -# %label.main_chat__bottom__form__input__label{for: "gazo"}
-  -# %input{type: "file", id: "gazo", class: "file"}
-  -# = link_to "Send", "#", class: "main_chat__bottom__form--btn"
-
-  -# = form_with(model: [@group, @message], clsss: :main_chat__bottom__form)
-  -# html: {class: 'main_chat__bottom__form'}
   .main_chat__bottom
     = form_for [@group, @message], html: {class: 'main_chat__bottom__form'} do |f|
       .main_chat__bottom__form__input
