@@ -8,15 +8,13 @@
         - @group.users.each do |user|
           %li.main_chat__top__left__members__member
             = user.name
-          %li.main_chat__top__left__members__member
-            = user.name
 
     .main_chat__top__right
       = link_to "Edit", edit_group_path(@group), class: "main_chat__top__right--btn"
 
   .main_chat__middle
-    .main_chat__middle__contents
-      - current_user.messages.includes(:group).each do |message|
+    - @messages.each do |message|
+      .main_chat__middle__contents{data: {message: {id: message.id}}}
         .main_chat__middle__contents__user
           .main_chat__middle__contents__user__name
             = message.user.name
@@ -27,6 +25,8 @@
             = message.content
         = image_tag message.image.url, size: '300x300', alt: 'テスト画像' if message.image.present?
 
+  -# = render partial: 'message', collection: @messages
+  -# - current_user.messages.includes(:group).each do |message|
   -# - if message.content.present? = message.content
   -# = image_tag message.image.url, size: '300x300', alt: 'テスト画像', class: 'lower-message__image' if message.image.present?
 
